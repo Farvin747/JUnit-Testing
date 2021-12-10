@@ -23,31 +23,19 @@ public class DriversManagerTest
     }
 
     @Test
-    public void Passenger(){
-        Passenger firstPassenger = driversManager.getPassenger("44234");
-        boolean checkObj = false;
-        if("Carlos" == firstPassenger.getName() && "44234" == firstPassenger.getId() && 100 == firstPassenger.getBalance())
-        {
-            checkObj = true;
-        }
-        Assert.assertTrue("Passenger is Not added..!",checkObj);
-        // Assert.assertEquals("Carlos",driversManager.getPassenger("44234").getName());
-        // Assert.assertEquals("44234",driversManager.getPassenger("44234").getId());
-        // Assert.assertEquals(100 ,driversManager.getPassenger("44234").getBalance());
-
+    public void verifyDriverAddedCorrectly(){
+		Assert.assertEquals(driversManager.getDriver("1234990").getName(), "Emilio");
+		Assert.assertEquals(driversManager.getDriver("12312440").getName(), "Pedro");
+		Assert.assertEquals(driversManager.getDriver("9824990").getName(), "Constanza");
     }
+
     @Test
-    public void Driver(){
-        Driver firstDriver = driversManager.getDriver("1234990");
-        boolean checkObj = false;
-        if("Emilio" == firstDriver.getName() && "1234990" == firstDriver.getId() && 10f == firstDriver.getFee())
-        {
-            checkObj = true;
-        }
-        Assert.assertTrue("Driver is Not added..!",checkObj);
-
-
+    public void verifyPassengerAddedCorrectly(){
+		Assert.assertEquals(driversManager.getPassenger("44234").getName(), "Carlos");
+		Assert.assertEquals(driversManager.getPassenger("533434").getName(), "Elise");
+		Assert.assertEquals(driversManager.getPassenger("5343433").getName(), "Ian");
     }
+    
     @Test
     public void startTripTest(){
         driversManager.startTrip("44234","9824990");
